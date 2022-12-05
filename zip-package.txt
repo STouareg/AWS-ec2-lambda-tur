@@ -1,0 +1,9 @@
+sudo pip3 install --target ./package pytelegrambotapi
+sudo pip3 install --target ./package telebot
+sudo pip3 install --target ./package telepot
+sudo pip3 install --target ./package boto3
+cd package
+zip -r ../my-deployment-package.zip .
+cd ..
+zip -g my-deployment-package.zip lambda_function.py
+aws lambda update-function-code --function-name tgbot --zip-file fileb://my-deployment-package.zip
